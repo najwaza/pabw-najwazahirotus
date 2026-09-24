@@ -12,7 +12,7 @@
   Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
   komentar itu adalah daftar periksa Anda sendiri.
 -->
-<html>
+<html lang="id">
 <head>
   <title>List Film Favorit</title>
   <!-- TODO B.1: tambahkan dua baris meta di bawah ini: -->
@@ -28,9 +28,9 @@
         <h1>List Film Favorit</h1>
         <nav aria-label="Navigasi utama">
         <ul>
-            <li><a href="#bagian-1">Tautan 1</a></li>
-            <li><a href="#bagian-2">Tautan 2</a></li>
-            <li><a href="#bagian-3">Tautan 3</a></li>
+            <li><a href="#Bagian1">Beranda</a></li>
+            <li><a href="#Bagian2">Tentang Saya</a></li>
+            <li><a href="#Bagian3">Kontak</a></li>
         </ul>
     </nav>
 </header>
@@ -41,26 +41,131 @@
         <main>
             <section id="bagian-1">
                 <h2>List Film</h2>
-                <!-- tabel Anda nanti di sini (Lembar D) -->
+                <figure>
+                    <img 
+                    src="gambar nonton film.jpg"
+                    alt="Tampilan gambar nontonfilm"
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    >
+                    <figcaption>
+                        Ilustrasi menonton film
+                    </figcaption>
+</figure>
+                <!-- tabel Anda nanti di sini (Lembar D) --> <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
+                                                                Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
+                <table border="1">
+                    <caption>Daftar Film Favorit</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Judul Film</th>
+                            <th scope="col">Sutradara</th>
+                            <th scope="col">Tahun Rilis</th>
+                            <th scope="col">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Speed and Love</td>
+                            <td>Yu Chungchung</td>
+                            <td>2025</td>
+                            <td>9.8/10</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Hidden Love</td>
+                            <td>Lee Ching Jung</td>
+                            <td>2023</td>
+                            <td>9.7/10</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>The First Frost</td>
+                            <td>Chu Yu Ning</td>
+                            <td>2025</td>
+                            <td>10/10</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Never Ending Summer</td>
+                            <td>Xu Zhao Ren</td>
+                            <td>2026</td>
+                            <td>9.9/10</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
                 </section>
                 
-        <section id="bagian-2">
+            <section id="bagian-2">
             <h2>Input Film dan Rating</h2>
-            <!-- form Anda nanti di sini (Lembar E) -->
+            <!-- form Anda nanti di sini (Lembar E) --> <!-- TODO E.1: di dalam section kedua, buat form Anda.
+                                                        Wajib ada: minimal 3 kolom, setiap kolom punya <label for> yang
+                                                        cocok dengan id input-nya, dan satu atribut validasi. -->
+            <!-- Menggunakan AI untuk panduan saja, selebihnya bagian ini ketik sendiri-->
+            <form action="/profil" method="post" novalidate>
+                <fieldset>
+                    <legend>Tambah Film</legend>
+                    
+                    <!-- Nama Film -->
+                     <label for="namaFilm">Nama Film</label>
+                     <input 
+                     id="namaFilm" 
+                     name="namaFilm" 
+                     type="text"
+                     required 
+                     minlength="2"
+                     autocomplete="off">
+
+                     <!-- Sutradara -->
+                        <label for="sutradara">Sutradara</label>
+                        <input
+                        id="sutradara"
+                        name="sutradara"
+                        type="text"
+                        required
+                        minlength="2"
+                        autocomplete="off">
+                    
+                    <!-- Tahun Rilis -->
+                     <label for="tahunRilis">Tahun Rilis</label>
+                     <input
+                        id="tahunRilis"
+                        name="tahunRilis"
+                        type="number"
+                        required
+                        min="2000"
+                        max="2026"
+                        minlength="4"
+                        autocomplete="off">
+                    <!-- Rating -->
+                     <label for="rating">Rating</label>
+                     <input 
+                     id="rating" 
+                     name="rating" 
+                     type="number"
+                     required 
+                     min="1" 
+                     max="10"
+                     aria-describedby="rating-hint">
+                    <p id="rating-hint">Isi rating dari 1 sampai 10.</p>
+                    <button type="submit">Tambah</button>
+            </form>
+            </fieldset>
             </section>
         </main>
 
 
-    <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
-         Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
-
-
-    <!-- TODO E.1: di dalam section kedua, buat form Anda.
-         Wajib ada: minimal 3 kolom, setiap kolom punya <label for> yang
-         cocok dengan id input-nya, dan satu atribut validasi. -->
-
   <!-- TODO C.3: buat <footer> di sini.
        Isinya: nama Anda, NIM Anda, dan tahun. -->
-
+    <footer>
+        <p>Nama: Najwa Zahirotus Shofa</p>
+        <p>NIM: 25523210</p>
+        <p>Tahun: 2026</p>
+    </footer>
 </body>
 </html>
