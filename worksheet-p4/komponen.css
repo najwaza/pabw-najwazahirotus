@@ -35,3 +35,15 @@ button {
  
 /* JANGAN seperti ini — pengguna papan ketik kehilangan jejak */
 /* *:focus { outline: none; } */
+
+ 
+/* BENAR — hanya setelah pengguna mengetik sesuatu yang tidak sah */
+input:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+ 
+/* Pesan galat: sembunyikan selama belum tidak-sah, tampilkan saat perlu */
+.pesan-galat  { display: none; color: var(--color-danger); font-size: var(--text-sm); }
+.form-kolom:has(input:user-invalid) .pesan-galat { display: block; }
+
