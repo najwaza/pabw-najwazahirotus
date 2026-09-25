@@ -23,7 +23,7 @@
 }
  
 /* LAPIS 2 — semantik: peran. Isinya mengacu ke lapis 1. */
-:root {
+/* :root {
   --color-bg:       var(--dark-bg);
   --color-fg:       var(--light-text);
   --color-surface:  var(--dark-surface);
@@ -35,4 +35,6 @@
  
   --card-pad:       var(--space-4);
   --section-gap:    var(--space-6);
-}
+} */
+
+
