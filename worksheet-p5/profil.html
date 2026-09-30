@@ -27,11 +27,15 @@
 
 </head>
 <body>
+    <!-- taruh di dalam <header>, sebelum judul -->
+<input type="checkbox" id="tema" class="pengalih-tema">
+<label for="tema" class="tombol-tema">Tema gelap</label>
 
   <!-- TODO C.1: buat <header> di sini.
        Isinya: satu <h1> berisi judul halaman Anda.
        Di dalamnya juga ada <nav> berisi 3 tautan ke bagian halaman. -->
 <header>
+    <div class="header-baris">
         <h1>List Film Favorit</h1>
         <nav aria-label="Navigasi utama">
         <ul>
@@ -40,6 +44,7 @@
             <li><a href="#Bagian3">Kontak</a></li>
         </ul>
     </nav>
+    </div>
 </header>
 
 
@@ -48,19 +53,6 @@
         <main>
             <section id="bagian-1">
                 <h2>List Film</h2>
-                <!-- Menggunakan AI untuk code gambar-->
-                <figure>
-                    <img 
-                    src="gambar nonton film.jpg"
-                    alt="Tampilan gambar nontonfilm"
-                    width="500"
-                    height="500"
-                    loading="lazy"
-                    >
-                    <figcaption>
-                        Ilustrasi menonton film
-                    </figcaption>
-                </figure>
                 <!-- tabel Anda nanti di sini (Lembar D) --> <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
                                                                 Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
                 <table border="1">
@@ -107,6 +99,43 @@
 
                 </table>
 
+                <div class="katalog">
+                    <div class="kartu">
+                        <h3>Speed and Love</h3>
+                        <p>Yu Chungchung</p>
+                        <p>2025</p>
+                        <p>9.8/10</p>
+                </div>
+                
+                <div class="kartu">
+                    <h3>Hidden Love</h3>
+                    <p>Lee Ching Jung</p>
+                    <p>2023</p>
+                    <p>9.7/10</p>
+                </div>
+                
+                <div class="kartu">
+                    <h3>The First Frost</h3>
+                    <p>Chu Yu Ning</p>
+                    <p>2025</p>
+                    <p>10/10</p>
+                </div>
+            </div>
+            
+                <!-- Menggunakan AI untuk code gambar-->
+                <figure>
+                    <img 
+                    src="gambar nonton film.jpg"
+                    alt="Tampilan gambar nontonfilm"
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    >
+                    <figcaption>
+                        Ilustrasi menonton film
+                    </figcaption>
+                </figure>
+
                 </section>
                 
             <section id="bagian-2">
@@ -140,6 +169,8 @@
                         autocomplete="off">
                     
                     <!-- Tahun Rilis -->
+                    <div class="baris-kedua">
+                        <div>
                      <label for="tahunRilis">Tahun Rilis</label>
                      <input
                         id="tahunRilis"
@@ -150,7 +181,9 @@
                         max="2026"
                         minlength="4"
                         autocomplete="off">
+                        </div>
                     <!-- Rating -->
+                     <div>
                      <label for="rating">Rating</label>
                      <input 
                      id="rating" 
@@ -160,6 +193,8 @@
                      min="1" 
                      max="10"
                      aria-describedby="rating-hint">
+                    </div>
+                    </div>
                     <p id="rating-hint">Isi rating dari 1 sampai 10.</p>
                     <button type="submit">Tambah</button>
             </form>

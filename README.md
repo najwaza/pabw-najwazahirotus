@@ -10,7 +10,7 @@ Berbasis Web, satu folder untuk setiap pertemuan.
 
 Token	Untuk apa	Contoh nilai	Nilai saya
 --color-bg	Latar halaman	#F8FAFC	#0F172A
---color-fg	Warna teks utama	#0F172A	#F9FAB
+--color-fg	Warna teks utama	#0F172A	#F9FAFB
 --color-surface	Latar kartu dan panel, sedikit berbeda dari halaman	#FFFFFF	#1E293B
 --color-border	Garis pemisah dan tepi kotak	#D1D5DB	#334155
 --color-primary	Warna utama Anda: tombol, tautan, penanda	pilih sendiri	#E50914
