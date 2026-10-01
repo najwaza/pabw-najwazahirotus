@@ -1,0 +1,203 @@
+/* ---------- Tombol pengalih tema ---------- */
+.tombol-tema {
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+}
+
+/* ============================================================
+   GALERI — grid adaptif, TANPA media query (Lembar C.1)
+   Jumlah kolom menyesuaikan lebar layar lewat auto-fit + minmax
+   ============================================================ */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-4);
+}
+
+/* ---------- Kartu film ---------- */
+.kartu {
+  min-width: 0;
+  overflow: hidden;               /* sudut poster ikut membulat */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+
+/* Tinggi seragam: kartu satu baris grid sama diregangkan (Lembar E.1) */
+.galeri .kartu {
+  display: grid;
+  grid-template-rows: auto 1fr;   /* poster, lalu isi mengisi sisa tinggi */
+  align-content: start;
+  min-height: 14rem;
+}
+
+.kartu__poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;            /* semua poster seragam */
+  object-fit: cover;
+}
+
+/* Isi kartu: flex kolom — info di atas, kaki menempel di bawah */
+.kartu__isi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--card-pad);
+  min-width: 0;                   /* teks panjang membungkus, tidak melebarkan kolom (E.2) */
+}
+
+.kartu__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.kartu__judul { overflow-wrap: anywhere; }
+
+.kartu__meta { font-size: var(--text-sm); }
+
+/* Baris tahun + rating: flex, sumbu utama horizontal (Lembar C.2) */
+.kartu__kaki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.kartu__rating {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ---------- Tabel ---------- */
+.tabel-wrap {                     /* tabel digeser di dalam kotaknya, tidak meluber */
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+}
+
+caption {
+  padding-bottom: var(--space-2);
+  font-weight: 600;
+  text-align: left;
+}
+
+th, td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+thead th {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+tbody tr:nth-child(even) { background: var(--color-bg); }
+
+/* ---------- Gambar ilustrasi ---------- */
+figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 24rem;
+}
+
+figure img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+
+figcaption { font-size: var(--text-sm); }
+
+/* ---------- Form ---------- */
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;                   /* fieldset punya min-width bawaan yang bisa meluber */
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+legend {
+  padding-inline: var(--space-2);
+  font-weight: 600;
+}
+
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);            /* jarak label ke isian, seragam */
+}
+
+/* Dua kolom bila muat, satu kolom bila sempit — tanpa media query */
+.baris-kedua {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: var(--space-4);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font: inherit;                  /* kolom isian ikut ukuran huruf halaman */
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+.petunjuk { font-size: var(--text-sm); }
+
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.1); }
+
+/* ---------- Fokus & validasi ---------- */
+/* :focus-visible hanya muncul saat pengguna memakai papan ketik */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Tanda galat hanya setelah pengguna mengisi sesuatu yang tidak sah */
+input:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+/* Pesan galat: tersembunyi sampai isian tidak sah */
+.pesan-galat {
+  display: none;
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+.form-kolom:has(input:user-invalid) .pesan-galat { display: block; }
