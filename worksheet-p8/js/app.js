@@ -17,11 +17,12 @@ const profil = {
   nama: "Najwa Zahirotus",
   peran: "Mahasiswa Informatika",
   keahlian: ["HTML", "CSS", "JavaScript"],
-  julahProyek: 3,
+  jumlahProyek: 3,
 };
 
 
 console.log(profil);
+console.log(profil.nama);
 
 // 1. Menyusun kalimat perkenalan dari satu object
 function buatPerkenalan({ nama, peran }) {
@@ -38,6 +39,7 @@ const daftarProyek = [
   { judul: "Halaman Profil", tahun: 2026, selesai: true },
   { judul: "Katalog Produk", tahun: 2026, selesai: false },
 ];
+//untuk menentukan code apa yang akan dipakai, bertanya pada AI
 
 console.table(profil.keahlian);
 console.table(daftarProyek);
@@ -65,3 +67,13 @@ const urutanProyek = [...daftarProyek].sort((a, b) => a.tahun - b.tahun);
 
 console.table(urutanProyek);
 console.table(daftarProyek);
+
+const namaFilm = document.querySelector("#namaFilm");
+
+console.log(namaFilm);
+
+const rating = document.querySelector("#rating");
+
+const hasil5 = Number(9) + 1;
+
+console.log(hasil5);
