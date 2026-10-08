@@ -34,4 +34,34 @@ const formatKeahlian = (daftar) => daftar.join(" · ");
 console.log(buatPerkenalan(profil));
 console.log(formatKeahlian(profil.keahlian));
 
+const daftarProyek = [
+  { judul: "Halaman Profil", tahun: 2026, selesai: true },
+  { judul: "Katalog Produk", tahun: 2026, selesai: false },
+];
 
+console.table(profil.keahlian);
+console.table(daftarProyek);
+
+const selesai = daftarProyek.filter((proyek) => proyek.selesai);
+console.table(selesai);
+
+const katalog = daftarProyek.find((proyek) => proyek.judul === "Katalog Produk");
+console.log(katalog);
+
+const hasil = [1, 2, 3].map((angka) => angka * 2);
+console.log(hasil);
+
+const hasil2 = [1, 2, 3].filter((angka) => angka > 1);
+
+console.log(hasil2);
+
+const hasil3 = [1, 2, 3].reduce((total, angka) => total + angka, 0);
+
+console.log(hasil3);
+
+//1. map, 2. filter, 3. find, 4. reduce
+
+const urutanProyek = [...daftarProyek].sort((a, b) => a.tahun - b.tahun);
+
+console.table(urutanProyek);
+console.table(daftarProyek);
