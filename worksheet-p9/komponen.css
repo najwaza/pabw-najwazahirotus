@@ -197,4 +197,9 @@ input:user-invalid {
   font-size: var(--text-sm);
 }
 
-.form-kolom:has(input:user-invalid) .pesan-galat { display: block; }
+.form-kolom:has(input:user-invalid) .pesan-galat { 
+  display: block; }
+
+.aktif { 
+  outline: 2px solid currentColor; 
+  outline-offset: 2px; }

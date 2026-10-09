@@ -36,8 +36,18 @@ console.log(buatPerkenalan(profil));
 console.log(formatKeahlian(profil.keahlian));
 
 export const daftarProyek = [
-  { judul: "Halaman Profil", tahun: 2026, selesai: true },
-  { judul: "Katalog Produk", tahun: 2026, selesai: false },
+  { 
+    judul: "Halaman Profil", 
+    tahun: 2026, 
+    selesai: true,
+    kategori: "web",
+  },
+  { 
+    judul: "Katalog Produk", 
+    tahun: 2026, 
+    selesai: false,
+    kategori: "data",
+  },
 ];
 //untuk menentukan code apa yang akan dipakai, bertanya pada AI
 
