@@ -35,7 +35,7 @@ const formatKeahlian = (daftar) => daftar.join(" · ");
 console.log(buatPerkenalan(profil));
 console.log(formatKeahlian(profil.keahlian));
 
-const daftarProyek = [
+export const daftarProyek = [
   { judul: "Halaman Profil", tahun: 2026, selesai: true },
   { judul: "Katalog Produk", tahun: 2026, selesai: false },
 ];
@@ -75,5 +75,6 @@ console.log(namaFilm);
 const rating = document.querySelector("#rating");
 
 const hasil5 = Number(9) + 1;
-
 console.log(hasil5);
+
+
