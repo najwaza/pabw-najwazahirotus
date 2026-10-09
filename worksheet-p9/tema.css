@@ -1,0 +1,28 @@
+/* Tema gelap: hanya lapis semantik yang diganti.
+   Aktif saat kotak centang #tema dicentang. Bawaan halaman = terang. */
+:root:has(#tema:checked) {
+  --color-bg:         var(--dark-bg);
+  --color-fg:         var(--light-text);
+  --color-surface:    var(--dark-surface);
+  --color-border:     var(--dark-border);
+  --color-primary:    var(--blue-300);   /* lebih terang agar kontras lolos */
+  --color-on-primary: var(--dark-bg);
+  --color-danger:     var(--coral-300);
+  --color-focus:      var(--amber-400);
+  --shadow-1:         0 1px 3px rgba(0, 0, 0, .45);
+}
+
+/* Kotak centang disembunyikan secara visual, tetap bisa difokus keyboard */
+.pengalih-tema {
+  position: absolute;
+  width: 1px;                     /* jangan ikut aturan lebar input lain */
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Beri tanda fokus pada tombol saat kotak centang difokus via keyboard */
+.pengalih-tema:focus-visible + .tombol-tema {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
