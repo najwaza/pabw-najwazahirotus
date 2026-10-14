@@ -23,3 +23,11 @@ export async function ambilNotisia() {
     throw galat;
   }
 }
+
+// teks menjadi objek
+//const data = await respons.json();
+//console.log(data.titulu);
+
+// objek menjadi teks
+const badan = JSON.stringify({ titulu: 'Avisu', nivel: 2 });
+console.log(typeof badan);   // string

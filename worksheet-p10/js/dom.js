@@ -1,4 +1,5 @@
 import { daftarProyek } from "./app.js";
+import { ambilNotisia } from './api.js';
 
 const wadah = document.querySelector("#daftar");
 const kosong = document.querySelector("#pesan-kosong");
@@ -91,3 +92,44 @@ form.addEventListener("submit", (event) => {
         if (kolomBermasalah) { 
             kolomBermasalah.focus(); return; 
         } alert("Form valid! Semua kolom sudah terisi dengan benar."); });
+
+
+// D.1 - Menampilkan data dari API
+
+const wadahApi = document.querySelector('#daftar-api');
+
+function gambar(daftar) {
+  wadahApi.textContent = '';
+
+  daftar.forEach(function (n) {
+    const kartu = document.createElement('article');
+
+    const judul = document.createElement('h3');
+    judul.textContent = n.judul;
+
+    kartu.appendChild(judul);
+    wadahApi.appendChild(kartu);
+  });
+}
+
+async function tampilkan() {
+  wadahApi.textContent = 'Memuat...';
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
+  try {
+    const hasil = await ambilNotisia();
+    const daftar = hasil.data;
+
+    if (daftar.length === 0) {
+      wadahApi.textContent = 'Belum ada notisia';
+      return;
+    }
+
+    gambar(daftar);
+
+  } catch (galat) {
+    wadahApi.textContent = 'Gagal memuat data: ' + galat.message;
+  }
+}
+
+tampilkan();
