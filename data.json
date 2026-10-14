@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "judul": "Operasi Pesta Copet",
+      "genre": "Action",
+      "rating": 9
+    },
+    {
+      "id": 2,
+      "judul": "Mencuri Raden Saleh",
+      "genre": "Action",
+      "rating": 8.8
+    },
+    {
+      "id": 3,
+      "judul": "Ayah, Ini Arahnya Kemana?",
+      "genre": "Family",
+      "rating": 9
+    }
+  ]
+}

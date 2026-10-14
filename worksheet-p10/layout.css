@@ -1,0 +1,122 @@
+/* ============================================================
+   KERANGKA HALAMAN — grid (Lembar A.1 & B.1)
+   Tiga baris: kepala (auto) · isi (1fr) · kaki (auto)
+   ============================================================ */
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--section-gap);
+  min-height: 100dvh;             /* dvh: aman saat bilah alamat ponsel bergerak */
+}
+
+/* ============================================================
+   NAVBAR — flex (Lembar B.2)
+   Sumbu utama: horizontal · sumbu silang: vertikal
+   ============================================================ */
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar {
+  display: flex;
+  gap: var(--space-4);            /* jarak antar item lewat gap */
+  align-items: center;
+  justify-content: space-between; /* judul kiri, menu tengah, tombol kanan */
+  flex-wrap: wrap;                /* turun baris di layar sempit, jangan meluber */
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+nav a:hover { text-decoration: underline; }
+
+/* ============================================================
+   ISI HALAMAN — grid dua kolom + area bernama (Lembar B.2 & D.2)
+   Kolom 1: sidebar tetap 16rem · kolom 2: konten menyerap sisa (1fr)
+   ============================================================ */
+.isi {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  grid-template-areas:
+    "sisi utama"
+    "sisi bawah";
+  gap: var(--section-gap);
+}
+
+.sisi  { grid-area: sisi;  align-self: start; }  /* form: tidak ikut melar */
+.utama { grid-area: utama; }                      /* daftar film */
+.bawah { grid-area: bawah; }                      /* gambar ilustrasi */
+
+/* Item grid boleh menyusut di bawah ukuran isinya (Lembar E.2) */
+.isi > * { min-width: 0; }
+
+/* Isi tiap bagian disusun berderet ke bawah — flex */
+.isi > section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Layar sempit: sidebar 16rem terlalu lebar, jadi jadi satu kolom */
+@media (max-width: 48rem) {
+  .isi {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "utama"
+      "bawah"
+      "sisi";
+  }
+}
+
+/* ============================================================
+   KAKI HALAMAN
+   ============================================================ */
+footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+}
+
+#proyek {
+  display: block;
+  clear: both;
+  width: 100%;
+  margin-top: 32px;
+}
+
+#proyek h2 {
+  margin-bottom: 16px;
+}
+
+#filter{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#daftar{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding:0;
+  list-style: none;
+}
+
+#daftar li{
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
