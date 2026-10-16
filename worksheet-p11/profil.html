@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="responsif.css">
 </head>
 <body>
-  <!-- Kotak centang harus berada sebelum elemen lain agar :has(#tema:checked) bekerja -->
+  <!-- Kotak centang tema -->
   <input type="checkbox" id="tema" class="pengalih-tema">
 
   <div class="page">
@@ -32,118 +32,32 @@
       </div>
     </header>
 
-    <main class="isi">
-      <!-- ========== Bagian 1: daftar film ========== -->
+    <main class="isi content">
+      
+      <!-- ========== Bagian 1: Daftar Film (Beranda) ========== -->
       <section id="bagian-1" class="utama">
-        <h2>List Film</h2>
-        <section id="proyek" class="utama">
-            <h3>Filter</h3>
-            
-            <div id="filter">
-              <button data-kategori="semua" class="aktif">Semua</button>
-              <button data-kategori="2023">2023</button>
-              <button data-kategori="2024">2024</button>
-              <button data-kategori="2025">2025</button>
-              <button data-kategori="2026">2026</button>
-            </div>
-            
-            <ul id="daftar"></ul>
-            <p id="pesan-kosong" hidden>Tidak ada proyek pada kategori itu.</p>
-        </section>
-        
+        <h2>List Film Favorit</h2>
 
-        <!-- Katalog kartu: satu poster per film -->
-        <div class="galeri">
-          <article class="kartu">
-            <img class="kartu__poster"
-            src="gambar/poster-speed-and-love.jpg"
-            alt="Poster film Speed and Love"
-            loading="lazy">
-            <div class="kartu__isi">
-              <div class="kartu__info">
-                <h3 class="kartu__judul">Speed and Love</h3>
-                <p class="kartu__meta">Yu Chungchung</p>
-              </div>
-              <div class="kartu__kaki">
-                <span class="kartu__tahun">2025</span>
-                <span class="kartu__rating">9.8/10</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="kartu">
-            <img class="kartu__poster"
-            src="gambar/poster-hidden-love.jpg"
-            alt="Poster film Hidden Love"
-            loading="lazy">
-            <div class="kartu__isi">
-              <div class="kartu__info">
-                <h3 class="kartu__judul">Hidden Love</h3>
-                <p class="kartu__meta">Lee Ching Jung</p>
-              </div>
-              <div class="kartu__kaki">
-                <span class="kartu__tahun">2023</span>
-                <span class="kartu__rating">9.7/10</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="kartu">
-            <img class="kartu__poster"
-            src="gambar/poster-the-first-frost.jpg"
-            alt="Poster film The First Frost"
-            loading="lazy">
-            <div class="kartu__isi">
-              <div class="kartu__info">
-                <h3 class="kartu__judul">The First Frost</h3>
-                <p class="kartu__meta">Chu Yu Ning</p>
-              </div>
-              <div class="kartu__kaki">
-                <span class="kartu__tahun">2025</span>
-                <span class="kartu__rating">10/10</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="kartu">
-            <img class="kartu__poster"
-            src="gambar/poster-never-ending-summer.jpg"
-            alt="Poster film Never Ending Summer"
-            loading="lazy">
-            <div class="kartu__isi">
-              <div class="kartu__info">
-                <h3 class="kartu__judul">Never Ending Summer</h3>
-                <p class="kartu__meta">Xu Zhao Ren</p>
-              </div>
-              <div class="kartu__kaki">
-                <span class="kartu__tahun">2026</span>
-                <span class="kartu__rating">9.9/10</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="kartu">
-            <img class="kartu__poster"
-            src="gambar/poster-zootopia.jpg"
-            alt="Poster film Zootopia"
-            loading="lazy">
-            <div class="kartu__isi">
-              <div class="kartu__info">
-                <h3 class="kartu__judul">Zootopia 2</h3>
-                <p class="kartu__meta"> Jared Bush dan Byron Howard</p>
-              </div>
-              <div class="kartu__kaki">
-                <span class="kartu__tahun">2025</span>
-                <span class="kartu__rating">9/10</span>
-              </div>
-            </div>
-          </article>
+        <!-- Baris Filter Tahun -->
+        <div class="filter">
+          <button type="button" class="tombol-filter aktif" data-filter="semua">Semua</button>
+          <button type="button" class="tombol-filter" data-filter="2026">2026</button>
+          <button type="button" class="tombol-filter" data-filter="2025">2025</button>
+          <button type="button" class="tombol-filter" data-filter="2024">2024</button>
+          <button type="button" class="tombol-filter" data-filter="2023">2023</button>
         </div>
 
-        <!-- Tabel data -->
+        <!-- Indikator Loading & Pesan Status -->
+        <p class="muatg" hidden>Memuat data...</p>
+        <p class="pesan-kosong" hidden>Belum ada film favorit yang ditambahkan.</p>
+
+        <!-- Galeri Grid (Akan diisi kartu film oleh dom.js) -->
+        <div class="galeri grid"></div>
+
+        <!-- Tabel Data Statis -->
         <div class="tabel-wrap">
           <table>
-            <caption>Daftar Film Favorit</caption>
+            <caption>Daftar Film Favorit (Statis)</caption>
             <thead>
               <tr>
                 <th scope="col">No</th>
@@ -185,60 +99,60 @@
               <tr>
                 <td>5</td>
                 <td>Zootopia 2</td>
-                <td>Jared Bush dan Byron Howard</td>
+                <td>Jared Bush & Byron Howard</td>
                 <td>2025</td>
                 <td>9/10</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Raya and The Last Dragon</td>
+                <td>Don Hall dan Carlos López Estrada</td>
+                <td>2021</td>
+                <td>9.8/10</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-        <!-- Gambar ilustrasi (kode gambar dibuat dengan bantuan AI) -->
-        <figure class="bawah">
-          <img src="gambar/nonton-film.jpg"
-               alt="Tablet menampilkan katalog film di samping semangkuk mi"
-               width="736" height="981" loading="lazy">
-          <figcaption>Ilustrasi menonton film</figcaption>
-        </figure>
+      <!-- Gambar Ilustrasi -->
+      <figure class="bawah">
+        <img src="gambar/nonton-film.jpg"
+             alt="Tablet menampilkan katalog film di samping semangkuk mi"
+             width="736" height="981" loading="lazy">
+        <figcaption>Ilustrasi menonton film</figcaption>
+      </figure>
 
-      <!-- ========== Bagian 2: form input ========== -->
+      <!-- ========== Bagian 2: Formulir Review ========== -->
       <section id="bagian-2" class="sisi">
         <h2>Input Film dan Rating</h2>
 
-        <!-- AI hanya dipakai untuk panduan; selebihnya diketik sendiri -->
-        <form action="/profil" method="post">
+        <!-- Form tanpa action & method agar ditangani JavaScript -->
+        <form>
           <fieldset>
             <legend>Tambah Film</legend>
 
             <div class="form-kolom">
-              <label for="namaFilm">Nama Film</label>
-              <input id="namaFilm" name="namaFilm" type="text"
+              <label for="nama-kolom1">Judul Film</label>
+              <input id="nama-kolom1" name="namaFilm" type="text"
                      required minlength="2" autocomplete="off">
-              <p class="pesan-galat">Isi nama film minimal 2 huruf.</p>
-            </div>
-
-            <div class="form-kolom">
-              <label for="sutradara">Sutradara</label>
-              <input id="sutradara" name="sutradara" type="text"
-                     required minlength="2" autocomplete="off">
-              <p class="pesan-galat">Isi nama sutradara minimal 2 huruf.</p>
+              <span class="pesan-galat">Isi nama film minimal 2 huruf.</span>
             </div>
 
             <div class="baris-kedua">
               <div class="form-kolom">
-                <label for="tahunRilis">Tahun Rilis</label>
-                <input id="tahunRilis" name="tahunRilis" type="number"
-                       required min="2000" max="2026" autocomplete="off">
-                <p class="pesan-galat">Tahun 2000 sampai 2026.</p>
+                <label for="nama-kolom2">Tahun Rilis</label>
+                <input id="nama-kolom2" name="tahunRilis" type="number"
+                       required min="2000" max="2027" autocomplete="off">
+                <span class="pesan-galat">Tahun 2000 sampai 2027.</span>
               </div>
 
               <div class="form-kolom">
-                <label for="rating">Rating</label>
-                <input id="rating" name="rating" type="number"
-                       required min="1" max="10" step="0.1"
+                <label for="nama-kolom3">Rating</label>
+                <input id="nama-kolom3" name="rating" type="number"
+                       required min="1" max="10"
                        aria-describedby="rating-hint">
-                <p class="pesan-galat">Rating 1 sampai 10.</p>
+                <span class="pesan-galat">Rating 1 sampai 10.</span>
               </div>
             </div>
 
@@ -248,10 +162,7 @@
           </fieldset>
         </form>
       </section>
-      <section> <!-- ========== Bagian 3: daftar film dari API ========== -->
-        <h2>Daftar Film dari API</h2>
-        <div id="daftar-api"></div>
-      </section>
+
     </main>
 
     <footer id="kontak">
@@ -261,7 +172,8 @@
     </footer>
 
   </div>
-  <section id="daftar"></section>
+
+  <!-- Hanya memuat app.js sebagai modul utama -->
   <script type="module" src="js/app.js"></script>
   <script type="module" src="js/dom.js"></script>
   <script type="module" src="js/api.js"></script>

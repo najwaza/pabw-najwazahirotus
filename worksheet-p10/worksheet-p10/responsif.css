@@ -1,0 +1,28 @@
+/* dasar: berlaku di semua lebar */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 14rem));
+  gap: var(--space-4);
+  justify-content: center;
+}
+/* tablet: galeri dua kolom */
+@media (min-width: 48rem) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* desktop: sidebar bersanding dengan konten */
+@media (min-width: 60rem) {
+  .main { grid-template-columns: 16rem 1fr; }
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- Tabel ---------- */
+.tabel-wrap {                     /* tabel digeser di dalam kotaknya, tidak meluber */
+  overflow-x: auto;
+}

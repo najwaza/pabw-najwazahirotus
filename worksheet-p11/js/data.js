@@ -1,31 +1,15 @@
-
+// Data mentah profil
 export const profil = {
-  nama: "Najwa Zahirotus",
+  nama: "Najwa Zahirotus Shofa",
   peran: "Mahasiswa Informatika",
   keahlian: ["HTML", "CSS", "JavaScript"],
   jumlahProyek: 3,
 };
 
-// Fungsi untuk menyusun kalimat perkenalan
+// Fungsi murni untuk membuat perkenalan
 export function buatPerkenalan({ nama, peran }) {
   return `${nama} — ${peran}`;
 }
 
-// Fungsi untuk merapikan daftar keahlian
+// Fungsi murni untuk memformat keahlian
 export const formatKeahlian = (daftar) => daftar.join(" · ");
-
-// Data mentah proyek
-export const daftarProyek = [
-  {
-    judul: "Halaman Profil",
-    tahun: 2026,
-    selesai: true,
-    kategori: "web",
-  },
-  {
-    judul: "Katalog Produk",
-    tahun: 2026,
-    selesai: false,
-    kategori: "data",
-  },
-];

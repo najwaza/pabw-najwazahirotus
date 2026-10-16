@@ -1,0 +1,54 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "judul": "Speed and Love",
+      "genre": "Romance",
+      "Sutradara": "Yu Chungchung",
+      "tahun": 2025,
+      "rating": 9,
+      "gambar": "poster-speed-and-love.jpg"
+    },
+    {
+      "id": 2,
+      "judul": "Hidden Love",
+      "genre": "Romance",
+      "Sutradara": "Lee Ching Jung",
+      "tahun": 2023,
+      "rating": 9.7
+    },
+    {
+      "id": 3,
+      "judul": "The First Frost",
+      "genre": "Romance",
+      "Sutradara": "Chu Yu Ning",
+      "tahun": 2025,
+      "rating": 10
+    },
+    {
+      "id": 4,
+      "judul": "Never Ending Summer",
+      "genre": "Romance",
+      "Sutradara": "Xu Zhao Ren",
+      "tahun": 2026,
+      "rating": 9.9
+    },
+    {
+      "id": 5,
+      "judul": "Zootopia 2",
+      "genre": "Animation",
+      "Sutradara": "Jared Bush & Byron Howard",
+      "tahun": 2025,
+      "rating": 9
+    },
+    {
+      "id": 6,
+      "judul": "Raya and The Last Dragon",
+      "genre": "Animation",
+      "Sutradara": "Don Hall dan Carlos López Estrada",
+      "tahun": 2021,
+      "rating": 9.8
+    }
+  ]
+}

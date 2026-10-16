@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "judul": "Operasi Pesta Copet",
+      "genre": "Action",
+      "tahun": 2024,
+      "rating": 9
+    },
+    {
+      "id": 2,
+      "judul": "Mencuri Raden Saleh",
+      "genre": "Action",
+      "tahun": 2022,
+      "rating": 8.8
+    },
+    {
+      "id": 3,
+      "judul": "Ayah, Ini Arahnya Kemana?",
+      "genre": "Family",
+      "tahun": 2024,
+      "rating": 9
+    }
+  ]
+}

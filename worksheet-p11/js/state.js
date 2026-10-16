@@ -1,18 +1,39 @@
-import { daftarProyek } from "./data.js";
- export const state = {
-    daftarProyek: [...daftarProyek],
-    pilihanAktif: "semua",
-    pencarian: "",
- };
 
- export function ubahPilihanAktif(pilihan) {
-    state.pilihanAktif = pilihan;
- }
+// js/state.js
 
- export function ubahPencarian(teks) {
-    state.pencarian = teks;
- }
+import { profil } from './data.js';
+import { render } from './dom.js';
+import { simpan} from './storage.js';
 
- export function ubahDaftarProyek(dataBaru) {
-    state.daftarProyek = dataBaru;
- }
+// Objek state tunggal
+export const state = {
+  profil: profil,
+  daftarProyek: [],
+  filterAktif: "semua",
+  sedangMemuat: false,
+  galat: null
+};
+
+// Fungsi pengubah daftar film
+export function ubahDaftarProyek(daftar) {
+  state.daftarProyek = daftar;
+}
+
+// Fungsi pengubah filter
+export function ubahFilter(nilai) {
+    console.log("Filter terpanggil", nilai);
+  state.filterAktif = nilai;
+  simpan(state);
+  console.log("HASIL SIMPAN:", localStorage.getItem("pabw-p11"));
+  render(state);
+}
+
+// Fungsi pengubah status memuat
+export function ubahMemuat(nilai) {
+  state.sedangMemuat = nilai;
+}
+
+// Fungsi pengubah pesan galat
+export function ubahGalat(pesan) {
+  state.galat = pesan;
+}
