@@ -114,7 +114,7 @@ function gambar(daftar) {
 
 async function tampilkan() {
   wadahApi.textContent = 'Memuat...';
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  //await new Promise(resolve => setTimeout(resolve, 3000));
 
   try {
     const hasil = await ambilNotisia();
